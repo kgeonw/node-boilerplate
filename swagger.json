@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Motie REST API",
+    "description": "Rest API for motie .",
+    "version": "1.0.0",
+    "contact": {
+      "name": "SGA Blockchain RnD Team"
+    }
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "basePath": "/",
+  "produces": ["application/json"],
+  "tags": [
+    {
+      "name": "default",
+      "description": "Stats about Server"
+    },
+    {
+      "name": "contact",
+      "description": "Contact about user"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "default"
+        ],
+        "summary": "Server Stats Request",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/contact/{Id}": {
+      "get": {
+        "tags": [
+          "contact"
+        ],
+        "summary": "Finds User by Id",
+        "description": "If Id values can be not provided that finds all User",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id value that need to be considered for filter",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "default": 200,
+          "type": "string"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "channel_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

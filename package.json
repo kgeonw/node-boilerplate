@@ -20,7 +20,7 @@
     "express": "^4.18.2",
     "helmet": "^3.18.0",
     "mongoose": "^5.13.15",
-    "nodemon": "^1.18.10"
+    "nodemon": "^2.0.21"
   },
   "devDependencies": {
     "@types/mongoose": "^5.3.22",
